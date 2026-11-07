@@ -20,7 +20,7 @@ print(y)
 print(frekans)
 print(f"{'x(i)':^10} {'frekans':^12}")
 print("-" * 24)
-
+ 
 k = len(y)
 for i in range(k):
     print(f"{y[i]:^10} {frekans[i]:^12}")
