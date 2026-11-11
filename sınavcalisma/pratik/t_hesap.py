@@ -1,39 +1,36 @@
 from scipy import stats
 
-x = [38, 42, 58, 64, 53, 29, 72, 56, 82, 62]
+X = [38, 42, 58, 64, 53, 29, 72, 56, 80, 62]
 
 mu0 = 40
 alfa = 0.05
-
 alternatif = "küçük"
 
-n = len(x)
-T = sum(x)
-
+n = len(X)
+T = sum(X)
 xort = T/n
 
+toplam = 0
 for i in range(n):
-    toplam += (x[i] - xort)**2
+    toplam += (X[i]-xort)**2
 
 gkt = toplam
-s2 = (gkt / n-1)
-s = s2 ** 0.5
 
-shata = s/(n**0.5)
+s2 = gkt / (n-1)
+s = s2**0.5
+shata = s/n**0.5
 
-thesap = (xort - mu0) / shata
+thesap = (xort - mu0)/(shata)
 
-if alternatif == "farkli":
+if alternatif == "farklı":
     t_tablo = stats.t.ppf(1-alfa/2, n-1)
-
     if abs(thesap) > t_tablo:
         karar = "H0 red"
     else:
-        karar = "H0 red edilemez"
+        karar = "H0 red edilmez"
 
 elif alternatif == "büyük":
     t_tablo = stats.t.ppf(1-alfa, n-1)
-
     if thesap > t_tablo:
         karar = "H0 red"
     else:
@@ -41,15 +38,14 @@ elif alternatif == "büyük":
 
 elif alternatif == "küçük":
     t_tablo = stats.t.ppf(alfa, n-1)
-
     if thesap < t_tablo:
         karar = "H0 red"
     else:
         karar = "H0 red edilemez"
 
-print("xort =", round(xort, 3))
-print("örneklem varyasnı =", round(s2, 3))
-print("thesap =", round(thesap, 3))
-print("sersbestlik derecesi =", n-1)
-print("ttablo =", round(t_tablo, 3))
-print("Karar :", karar)
+print("xort = ", round(xort, 3))
+print("Örneklem varyansı = ", round(s2, 3))
+print("thesap = ", round(thesap, 3))
+print("Serbestlik derecesi: ", n-1)
+print("ttablo=", round(t_tablo, 3))
+print("Karar: ", karar)
