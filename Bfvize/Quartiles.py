@@ -1,4 +1,5 @@
 import random
+import seaborn as sns
 
 x = [27, 29, 31, 33, 35, 36, 36, 39, 41, 43, 52, 89]
 
@@ -27,3 +28,5 @@ for i in range(n):
     if x[i] < alt or x[i] > ust:
         aykiri.append(x[i])
 print("aykırı değerler:", aykiri)
+
+
