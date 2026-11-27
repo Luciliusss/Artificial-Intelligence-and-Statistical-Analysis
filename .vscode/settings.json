@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "r.lsp.promptToInstall": false
+=======
+    "python-envs.defaultEnvManager": "ms-python.python:system"
+>>>>>>> 8e8afb59565732d0fce4feaf5a1a7d7a52d6ee27
 }
